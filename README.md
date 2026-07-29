@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/nithishbs07/Inferra/main/frontend/src/assets/inferra-logo.svg" alt="Inferra" width="80" />
+<img src="https://raw.githubusercontent.com/nithishbs07/Inferra/main/docs/inferra-logo.svg" alt="Inferra" width="120" />
 
 # Inferra
 
