@@ -1,0 +1,15 @@
+{
+    "name": "Inferra",
+    "short_name": "Inferra",
+    "icons": [
+        {
+            "src": "/inferra-mark.svg",
+            "sizes": "any",
+            "type": "image/svg+xml",
+            "purpose": "any maskable"
+        }
+    ],
+    "theme_color": "#09090B",
+    "background_color": "#09090B",
+    "display": "standalone"
+}

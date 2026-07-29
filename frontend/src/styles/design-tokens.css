@@ -1,0 +1,204 @@
+/**
+ * Inferra — Design Token System
+ *
+ * All UI colors, typography, spacing, elevation, and motion values
+ * are defined here as CSS custom properties. Components MUST use
+ * these tokens — never hardcode values.
+ *
+ * Theme switching works by redefining these variables under
+ * [data-theme="light"] (not yet implemented — dark mode only for now).
+ */
+
+:root {
+  /* ═══════════════════════════════════════════════════
+     COLORS — Surfaces
+     ═══════════════════════════════════════════════════ */
+  --surface-0: #09090B;            /* App background */
+  --surface-1: #15161A;            /* Sidebar, cards */
+  --surface-2: #1C1D22;            /* Elevated panels, modals */
+  --surface-3: #222329;            /* Inputs, code blocks */
+  --surface-hover: #1E2025;        /* Hover state */
+  --surface-active: #2A2D33;       /* Active / pressed state */
+  --surface-overlay: rgba(0, 0, 0, 0.65); /* Modal backdrop */
+
+  /* ═══════════════════════════════════════════════════
+     COLORS — Borders
+     ═══════════════════════════════════════════════════ */
+  --border-subtle: rgba(255, 255, 255, 0.06);
+  --border-default: #2B2D31;       /* Inferra panel borders */
+  --border-strong: rgba(255, 255, 255, 0.16);
+  --border-focus: var(--brand-primary);
+
+  /* ═══════════════════════════════════════════════════
+     COLORS — Text
+     ═══════════════════════════════════════════════════ */
+  --text-primary: #FFFFFF;         /* Headings, body */
+  --text-secondary: #A8A8A8;       /* Labels, secondary */
+  --text-tertiary: #6B6B6B;        /* Placeholders, disabled */
+  --text-inverse: #09090B;         /* Text on brand bg */
+
+  /* ═══════════════════════════════════════════════════
+     COLORS — Brand
+     ═══════════════════════════════════════════════════ */
+  --brand-primary: #E53935;        /* Primary accent — Inferra red */
+  --brand-primary-hover: #FF4D4F;  /* Hover — brighter red */
+  --brand-primary-muted: rgba(229, 57, 53, 0.15); /* Subtle bg */
+  --brand-primary-text: #FFB4B2;   /* Brand text on dark */
+
+  /* ═══════════════════════════════════════════════════
+     COLORS — Semantic
+     ═══════════════════════════════════════════════════ */
+  --success: #BCFF8C;
+  --success-muted: rgba(188, 255, 140, 0.12);
+  --warning: #FFEA92;
+  --warning-muted: rgba(255, 234, 146, 0.12);
+  --error: #FF684E;
+  --error-muted: rgba(255, 104, 78, 0.12);
+  --info: #8DFFF9;
+  --info-muted: rgba(141, 255, 249, 0.12);
+
+  /* ═══════════════════════════════════════════════════
+     COLORS — Agent States
+     ═══════════════════════════════════════════════════ */
+  --agent-thinking: #8DFFF9;
+  --agent-planning: #FFEA92;
+  --agent-executing: #E53935;      /* Matches brand primary */
+  --agent-verifying: #BCFF8C;
+  --agent-finished: #BCFF8C;
+  --agent-error: #FF684E;
+  --agent-paused: #9099AC;
+
+  /* ═══════════════════════════════════════════════════
+     TYPOGRAPHY — Font Families
+     ═══════════════════════════════════════════════════ */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', ui-monospace, monospace;
+
+  /* ═══════════════════════════════════════════════════
+     TYPOGRAPHY — Font Sizes (Major Third scale 1.25)
+     ═══════════════════════════════════════════════════ */
+  --text-2xs: 0.625rem;           /* 10px — Captions, timestamps */
+  --text-xs: 0.75rem;             /* 12px — Labels, badges */
+  --text-sm: 0.875rem;            /* 14px — Body small */
+  --text-base: 1rem;              /* 16px — Body default */
+  --text-lg: 1.125rem;            /* 18px — Body large */
+  --text-xl: 1.25rem;             /* 20px — H4 */
+  --text-2xl: 1.5rem;             /* 24px — H3 */
+  --text-3xl: 1.875rem;           /* 30px — H2 */
+  --text-4xl: 2.25rem;            /* 36px — H1 */
+  --text-5xl: 3rem;               /* 48px — Display */
+
+  /* ═══════════════════════════════════════════════════
+     TYPOGRAPHY — Line Heights
+     ═══════════════════════════════════════════════════ */
+  --leading-tight: 1.25;
+  --leading-snug: 1.375;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.625;
+
+  /* ═══════════════════════════════════════════════════
+     TYPOGRAPHY — Font Weights
+     ═══════════════════════════════════════════════════ */
+  --font-normal: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+
+  /* ═══════════════════════════════════════════════════
+     TYPOGRAPHY — Letter Spacing
+     ═══════════════════════════════════════════════════ */
+  --tracking-tighter: -0.04em;    /* Display headings */
+  --tracking-tight: -0.025em;     /* Headings */
+  --tracking-normal: 0;           /* Body */
+  --tracking-wide: 0.025em;       /* All-caps labels */
+
+  /* ═══════════════════════════════════════════════════
+     SPACING — 4px base unit
+     ═══════════════════════════════════════════════════ */
+  --space-px: 1px;
+  --space-0: 0;
+  --space-0-5: 0.125rem;          /* 2px */
+  --space-1: 0.25rem;             /* 4px */
+  --space-1-5: 0.375rem;          /* 6px */
+  --space-2: 0.5rem;              /* 8px */
+  --space-2-5: 0.625rem;          /* 10px */
+  --space-3: 0.75rem;             /* 12px */
+  --space-4: 1rem;                /* 16px */
+  --space-5: 1.25rem;             /* 20px */
+  --space-6: 1.5rem;              /* 24px */
+  --space-8: 2rem;                /* 32px */
+  --space-10: 2.5rem;             /* 40px */
+  --space-12: 3rem;               /* 48px */
+  --space-16: 4rem;               /* 64px */
+  --space-20: 5rem;               /* 80px */
+  --space-24: 6rem;               /* 96px */
+
+  /* ═══════════════════════════════════════════════════
+     BORDER RADIUS
+     ═══════════════════════════════════════════════════ */
+  --radius-none: 0;
+  --radius-sm: 0.375rem;          /* 6px — Small elements */
+  --radius-md: 0.5rem;            /* 8px — Buttons, inputs */
+  --radius-lg: 0.75rem;           /* 12px — Cards */
+  --radius-xl: 1rem;              /* 16px — Modals, panels */
+  --radius-2xl: 1.25rem;          /* 20px — Large containers */
+  --radius-full: 9999px;          /* Pills, avatars */
+
+  /* ═══════════════════════════════════════════════════
+     SHADOWS
+     ═══════════════════════════════════════════════════ */
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.25);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.35);
+  --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.4);
+  --shadow-glow: 0 0 24px rgba(229, 57, 53, 0.15); /* Inferra red glow */
+  --shadow-inner: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+
+  /* ═══════════════════════════════════════════════════
+     Z-INDEX SCALE
+     ═══════════════════════════════════════════════════ */
+  --z-base: 0;
+  --z-dropdown: 50;
+  --z-sticky: 100;
+  --z-overlay: 200;
+  --z-modal: 300;
+  --z-popover: 400;
+  --z-tooltip: 500;
+  --z-toast: 600;
+  --z-command-palette: 700;
+
+  /* ═══════════════════════════════════════════════════
+     TRANSITIONS
+     ═══════════════════════════════════════════════════ */
+  --duration-instant: 100ms;
+  --duration-fast: 150ms;
+  --duration-normal: 200ms;
+  --duration-slow: 250ms;
+  --duration-slower: 350ms;
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in: cubic-bezier(0.7, 0, 1, 0.5);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* ═══════════════════════════════════════════════════
+     LAYOUT — Sidebar Widths
+     ═══════════════════════════════════════════════════ */
+  --sidebar-collapsed: 72px;
+  --sidebar-expanded-min: 240px;
+  --sidebar-expanded-max: 320px;
+  --sidebar-expanded-default: 260px;
+
+  /* ═══════════════════════════════════════════════════
+     LAYOUT — Status Bar
+     ═══════════════════════════════════════════════════ */
+  --status-bar-height: 32px;
+
+  /* ═══════════════════════════════════════════════════
+     FOCUS RING
+     ═══════════════════════════════════════════════════ */
+  --ring-width: 2px;
+  --ring-offset: 2px;
+  --ring-color: var(--brand-primary);
+}
