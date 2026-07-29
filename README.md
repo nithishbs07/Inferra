@@ -1,150 +1,278 @@
-<a name="readme-top"></a>
 <div align="center">
-  <img src="https://assets.openhands.dev/logo-whitebackground.png" alt="OpenHands logo" width="340">
-  <p align="center">
-    <strong>The self-hosted developer control center for coding agents and automations.</strong>
-  </p>
-  <p align="center">
-    Run OpenHands, Claude Code, Codex, Gemini, or any ACP-compatible agent across local, remote, and cloud backends.
-  </p>
+
+<img src="https://raw.githubusercontent.com/nithishbs07/Inferra/main/frontend/src/assets/inferra-logo.svg" alt="Inferra" width="80" />
+
+# Inferra
+
+**The AI-Native Software Engineering Workspace**
+
+Run AI agents locally, on your infrastructure, or in the cloud —  
+on your terms, with your models, your tools, your workflow.
+
+[![Status](https://img.shields.io/badge/status-beta-E53935?style=flat-square)](https://github.com/nithishbs07/Inferra)
+[![License](https://img.shields.io/badge/license-MIT-white?style=flat-square)](LICENSE)
+[![Built with](https://img.shields.io/badge/built%20with-React%20%2B%20FastAPI-09090B?style=flat-square)](#)
+
+[Quickstart](#quickstart) · [Architecture](#architecture) · [Self-Hosting](#self-hosting) · [Documentation](#documentation)
+
 </div>
-<div align="center">
-  <a href="https://github.com/OpenHands/incubator-program"><img src="https://img.shields.io/badge/status-beta-blue?style=for-the-badge" alt="Project status beta"></a>
-  <a href="https://github.com/OpenHands/agent-canvas/actions/workflows/ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/OpenHands/agent-canvas/ci.yml?branch=main&style=for-the-badge" alt="CI status"></a>
-  <a href="https://www.npmjs.com/package/@openhands/agent-canvas"><img src="https://img.shields.io/npm/v/%40openhands%2Fagent-canvas?style=for-the-badge&logo=npm" alt="npm version"></a>
-  <a href="https://docs.openhands.dev/openhands/usage/agent-canvas/backends"><img src="https://img.shields.io/badge/Documentation-000?logo=googledocs&logoColor=FFE165&style=for-the-badge" alt="Documentation"></a>
-  <a href="https://go.openhands.dev/slack"><img src="https://img.shields.io/badge/Slack-Join%20the%20community-611f69?logo=slack&logoColor=white&style=for-the-badge" alt="Join us on Slack"></a>
-</div>
-<div align="center">
-  <a href="#quickstart">Quickstart</a> |
-  <a href="https://docs.openhands.dev/overview/introduction">Docs</a> |
-  <a href="https://docs.openhands.dev/openhands/usage/agent-canvas/backend-setup/vm">Self-Hosting</a> |
-  <a href="https://docs.openhands.dev/openhands/usage/agent-canvas/acp-agents">ACP Agents</a> |
-  <a href="https://docs.openhands.dev/openhands/usage/agent-canvas/prebuilt-automations">Automations</a> |
-  <a href="https://go.openhands.dev/slack">Slack</a>
-</div>
-<p align="center">
-  <img src="https://assets.openhands.dev/screenshot/automation-preview.png" alt="Agent Canvas automation preview" width="100%">
-</p>
-<hr>
 
-OpenHands Agent Canvas turns your coding agents into a self-hosted, always-on engineering team. It's a developer control center for starting conversations and automating everyday tasks — like generating reports that publish to Slack or automatically decomposing GitHub issues into tasks.
+---
 
-It runs locally on your machine by default, but can connect to multiple “agent backends”, e.g. running agents in Docker containers, on VMs, or within your company infrastructure. You can optionally choose to run agents on OpenHands Cloud or OpenHands Enterprise infrastructure.
+## What is Inferra?
 
-Agent Canvas runs the open source OpenHands agent out-of-the-box, but can use any third-party agent like Claude Code and Codex.
+Inferra is a self-hosted, always-on AI engineering workspace. It turns coding agents into a personal engineering team — running reports, decomposing GitHub issues, automating pull requests, and shipping code while you focus on what matters.
 
-|    |    |
+It runs entirely on your machine by default, but can connect to agent backends running in Docker containers, on VMs, or within your company infrastructure. You can optionally connect to cloud inference endpoints or run fully air-gapped with local models via Ollama.
+
+| Capability | Description |
 |---|---|
-| [**Self-host your way**](https://docs.openhands.dev/openhands/usage/agent-canvas/backend-setup/vm) | Run agents locally, in Docker, on VMs, or anywhere you can run an agent server backend |
-| [**Switch between different backends**](https://docs.openhands.dev/openhands/usage/agent-canvas/backends) | Switch between local, remote, and cloud agents without losing focus |
-| [**Create automations**](https://docs.openhands.dev/openhands/usage/agent-canvas/prebuilt-automations) | Create automations and workflows that integrate with Slack, GitHub, Linear, and more. Run on a schedule or in response to webhook events  |
-| [**Integrate with the tools you use**](https://docs.openhands.dev/openhands/usage/agent-canvas/prebuilt-automations) | Connect your automations with third-party services like Slack, GitHub, Notion, and more to automate workflows |
-| [**Bring your own model**](https://docs.openhands.dev/openhands/usage/settings/llm-settings#llm-profiles) | Use with any LLM |
-| [**Use with any agent**](https://docs.openhands.dev/openhands/usage/agent-canvas/acp-agents) | Use with OpenHands, Claude Code, Codex, Gemini, or any agent with Agent-Client Protocol (ACP). |
+| **Self-host your way** | Run agents locally, in Docker, on VMs, or anywhere you can run an agent server backend |
+| **Switch backends instantly** | Flip between local, remote, and cloud agents without losing context |
+| **Create automations** | Build workflows that integrate with Slack, GitHub, Linear, and more — on a schedule or via webhooks |
+| **Bring your own model** | Use with any LLM — OpenAI, Anthropic, Gemini, or fully local via Ollama |
+| **Use with any agent** | Works with any agent implementing the Agent-Client Protocol (ACP) |
 
-
-If you have questions or feedback, please open a GitHub issue or join the [#proj-agent-canvas channel in Slack](https://openhands.dev/joinslack).
-
-> [!NOTE]
-> The code in this repo is moving! See [Agent Canvas transition FAQ](https://github.com/OpenHands/OpenHands/issues/14841)
->
-> The source code for OpenHands Agent and Agent Server lives in [OpenHands/software-agent-sdk](https://github.com/OpenHands/software-agent-sdk).
->
-> The source code for Agent Canvas lives in [OpenHands/agent-canvas](https://github.com/OpenHands/agent-canvas).
+---
 
 ## Quickstart
 
-You can install OpenHands to run agents on any machine: on your laptop, on a dedicated computer like a Mac Mini,
-or on a server in the cloud.
+You can run Inferra on your laptop, a dedicated machine like a Mac Mini, or a cloud server.
 
-The most powerful way to run OpenHands is on a server in the cloud. This allows your agents to continue running
-even when your laptop is shut, and makes it easier to trigger your agents through third-party services
-like Slack, GitHub, and Datadog. See the [self-hosting guide](https://docs.openhands.dev/openhands/usage/agent-canvas/backend-setup/vm) for details, especially with respect to security hardening.
+### Option 1 — Without a Sandbox
 
-Notably, you can run the backend in _multiple different environments_, and switch between
-them from the same Agent Canvas frontend. E.g. you can share an Agent Server with your team for agents doing
-code review and dependency updates, then have your personal agents running on your laptop.
+> ⚠️ This runs the agent server directly on your machine. The agent will have full access to your filesystem.
 
-### Option 1: Without a Sandbox
+**Prerequisites:** Node.js 22.12.x or later, `uv`
 
-> [!WARNING]
-> This runs the agent-server directly on the machine you're installing on — the agent will have full access to your filesystem!
-
-**Prerequisites**: Node.js 22.12.x or later, `uv`
-
-```sh
-npm install -g @openhands/agent-canvas
-agent-canvas
+```bash
+npm install -g @inferra/agent-canvas
+inferra
 ```
 
-The `agent-canvas` command starts the full local stack by default. You can also split it when you want to run pieces separately:
+You can also run pieces separately:
 
-```sh
-agent-canvas --frontend-only  # static frontend + ingress only
-agent-canvas --backend-only   # agent server + automation backend + ingress only
-```
-
-### Option 2: With a Docker Sandbox
-
-**Prerequisites**:
-
-- Docker: Docker Desktop on macOS/Windows, or Docker Engine/Docker Desktop on Linux.
-- A host directory for `PROJECTS_PATH` containing the project folders you want the agent to access. Create it before starting the container.
-
-**macOS / Linux:**
-
-```sh
-export PROJECTS_PATH="$HOME/projects"  # directory containing your project folders
-mkdir -p "$PROJECTS_PATH" "$HOME/.openhands"
-
-docker run -it --rm \
-  -p 8000:8000 \
-  -v "$HOME/.openhands:/home/openhands/.openhands" \
-  -v "${PROJECTS_PATH}:/projects" \
-  ghcr.io/openhands/agent-canvas:1
-```
-
-**Windows (PowerShell / Windows Terminal):** See [README.windows.md](https://github.com/OpenHands/agent-canvas/blob/main/README.windows.md) for the equivalent commands.
-
-The agent will be able to access any project under `PROJECTS_PATH`.
-
-### Option 3: From Source
-
-> [!WARNING]
-> This runs the agent-server directly on the machine you're installing on — the agent will have full access to your filesystem!
-
-**Prerequisites**: Node.js 22.12.x or later, `npm`, `uv` (for running the agent server via `uvx`)
-
-```sh
-git clone https://github.com/OpenHands/agent-canvas.git
-cd agent-canvas
-npm install
-npm run dev
+```bash
+inferra --frontend-only   # static frontend + ingress only
+inferra --backend-only    # agent server + automation backend + ingress only
 ```
 
 ---
 
-Access the UI at [http://localhost:8000](http://localhost:8000). You can add additional backends directly from the UI.
+### Option 2 — With a Docker Sandbox
 
-# Architecture
+**Prerequisites:** Docker Desktop (macOS/Windows) or Docker Engine (Linux)
 
-Agent Canvas is powered by the [OpenHands Agent Server](https://github.com/OpenHands/software-agent-sdk/tree/main/openhands-agent-server/openhands/agent_server), a REST API for running multiple agents on a single machine. Each Agent Server runs on a single host/port; the Agent Canvas can connect to multiple Agent Servers and easily flip between them.
+```bash
+export PROJECTS_PATH="$HOME/projects"
+mkdir -p "$PROJECTS_PATH" "$HOME/.inferra"
 
-You can run an Agent Server anywhere:
+docker run -it --rm \
+  -p 8000:8000 \
+  -v "$HOME/.inferra:/home/inferra/.inferra" \
+  -v "${PROJECTS_PATH}:/projects" \
+  ghcr.io/nithishbs07/inferra:latest
+```
 
-- Directly on your laptop (be careful!)
-- On a dedicated machine like a Mac Mini
-- On a virtual machine in the cloud
-- Inside OpenHands Cloud (our commercial offering)
+The agent will have access to any project under `PROJECTS_PATH`.
 
-The Agent Server is often paired with an [Automation Server](https://github.com/OpenHands/automation), which lets you set up agents that run on a schedule or in response to events.
+---
 
-<img width="1456" height="1258" alt="image" src="https://github.com/user-attachments/assets/cb6de6f5-ac30-4d04-a76a-b5c259f0c163" />
+### Option 3 — From Source
 
-## More documentation
+> ⚠️ Runs the agent server directly on your machine.
 
-- [Documentation index](https://docs.openhands.dev/overview/introduction)
-- [Architecture overview](#architecture)
-- [Development guide](./Development.md)
-- [Self-hosting guide](https://docs.openhands.dev/openhands/usage/agent-canvas/backend-setup/vm)
+**Prerequisites:** Node.js 22.12.x or later, npm, uv
+
+```bash
+git clone https://github.com/nithishbs07/Inferra.git
+cd Inferra
+npm install
+npm run dev
+```
+
+Access the UI at **http://localhost:8000**. Add additional agent backends directly from the UI.
+
+---
+
+### Option 4 — Local AI with Ollama
+
+Run 100% offline with no cloud API keys required.
+
+```bash
+# Install Ollama
+brew install ollama
+ollama serve
+
+# Pull a model
+ollama pull qwen2.5-coder
+
+# Start Inferra — it auto-detects Ollama
+npm run dev
+```
+
+Inferra will automatically detect Ollama, select the best available model, and configure itself. No API key needed.
+
+**Supported local models (preference order):**
+1. `qwen3:14b`
+2. `qwen3:8b`
+3. `qwen2.5-coder`
+4. `deepseek-r1`
+5. `gemma3`
+
+---
+
+## Architecture
+
+Inferra is powered by a modular agent server architecture. Each agent server runs on a single host/port. The Inferra workspace can connect to multiple agent servers simultaneously.
+
+```
+┌─────────────────────────────────┐
+│         Inferra Workspace        │
+│    (React + Vite frontend)       │
+└────────────┬────────────────────┘
+             │
+    ┌─────────▼──────────┐
+    │   FastAPI Backend   │
+    │  /api/v1/* routes   │
+    └────────┬────────────┘
+             │
+    ┌────────▼────────────────────────────────┐
+    │           Agent Backends                 │
+    │                                          │
+    │  • Local (your laptop)                   │
+    │  • Docker container                      │
+    │  • Remote VM / Mac Mini                  │
+    │  • Ollama (local LLM)                    │
+    │  • Cloud endpoint                        │
+    └──────────────────────────────────────────┘
+```
+
+You can run an agent server anywhere:
+- **Directly on your laptop** — great for personal projects
+- **On a dedicated machine** — Mac Mini, home server
+- **On a VM in the cloud** — for always-on agents
+- **Fully local with Ollama** — air-gapped, no cloud required
+
+---
+
+## Features
+
+### 🤖 AI Agent Workspace
+- Start conversations with AI agents from a clean, minimal interface
+- Full streaming support — see tokens as they arrive
+- Conversation history with search
+- Multi-agent support
+
+### ⚡ Automations
+- Create workflows triggered by schedules or webhooks
+- Integrate with Slack, GitHub, Linear, Notion, and more
+- Agent-generated reports that publish automatically
+
+### 🔌 Model Flexibility
+- **Cloud:** OpenAI, Anthropic, Google Gemini, Azure
+- **Local:** Ollama with automatic model detection
+- **Custom:** Any OpenAI-compatible endpoint
+- Temperature, context window, streaming — all configurable
+
+### 🛡️ Privacy First
+- Fully self-hostable
+- Local model support via Ollama — no data leaves your machine
+- No telemetry without explicit consent
+
+### 🎨 Premium Design
+- Apple-inspired boot animation
+- Dark-first design system (`#09090B` background, `#E53935` accent)
+- Command palette (⌘K) for instant navigation
+- Responsive, accessible, 120fps-targeted animations
+
+---
+
+## Self-Hosting
+
+For production deployments, see the [self-hosting guide](docs/self-hosting.md).
+
+Key considerations:
+- **Security hardening** is essential if exposing to the internet
+- **PROJECTS_PATH** controls what the agent can access
+- **Ollama** can be run on a separate machine and accessed over LAN
+
+---
+
+## Compatible Agents
+
+Inferra works with any agent implementing the [Agent-Client Protocol (ACP)](https://agentprotocol.ai):
+
+| Agent | Status |
+|---|---|
+| Inferra Agent (built-in) | ✅ Native |
+| Claude Code | ✅ ACP compatible |
+| OpenHands | ✅ ACP compatible |
+| Codex | ✅ ACP compatible |
+| Gemini | ✅ ACP compatible |
+| Custom agents | ✅ Any ACP server |
+
+---
+
+## Tech Stack
+
+| Layer | Technology |
+|---|---|
+| Frontend | React 19, Vite, Framer Motion, React Router v7 |
+| Backend | Python 3.12, FastAPI, uvicorn |
+| Database | SQLite (local) / PostgreSQL (production) |
+| Agent Protocol | OpenHands SDK / ACP |
+| Local AI | Ollama (OpenAI-compatible API) |
+| Styling | Vanilla CSS with design tokens |
+
+---
+
+## Development
+
+```bash
+# Clone
+git clone https://github.com/nithishbs07/Inferra.git
+cd Inferra
+
+# Backend
+poetry install
+poetry run uvicorn openhands.server.app:app --host 0.0.0.0 --port 3000
+
+# Frontend
+cd frontend
+npm install
+npm run dev
+```
+
+Frontend runs at `http://localhost:3001`, backend at `http://localhost:3000`.
+
+---
+
+## Documentation
+
+- [Architecture Overview](docs/architecture.md)
+- [Development Guide](docs/development.md)
+- [Self-Hosting Guide](docs/self-hosting.md)
+- [Ollama Local AI Setup](docs/ollama.md)
+
+---
+
+## Contributing
+
+Issues and pull requests are welcome. Please open a GitHub issue for bugs, feature requests, or questions.
+
+---
+
+## License
+
+MIT License — see [LICENSE](LICENSE) for details.
+
+---
+
+<div align="center">
+
+Built with ❤️ · Powered by local AI · Runs anywhere
+
+**[github.com/nithishbs07/Inferra](https://github.com/nithishbs07/Inferra)**
+
+</div>
